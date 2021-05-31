@@ -89,7 +89,7 @@ int main (int argc, char* argv[])
 
     /* Save avg data to H5 file */
 
-    printf("Saving to \"%s\"\n");
+    printf("Saving to \"%s\"\n", argv[3]);
     avfile_id = H5Fcreate(argv[3], H5F_ACC_TRUNC, H5P_DEFAULT, H5P_DEFAULT);
     avdims[0] = dims[0];
     avdims[1] = dims[1];
@@ -100,7 +100,7 @@ int main (int argc, char* argv[])
     status = H5Dwrite(avdataset_id, H5T_NATIVE_DOUBLE, H5S_ALL, H5S_ALL,
             H5P_DEFAULT, avgpwr[0]);
 
-    printf("Avg values written to file \"%s\"\n", AVFILE);
+    printf("Avg values written to file \"%s\"\n", argv[3]);
 
     status = H5Dclose(avdataset_id);
     status = H5Sclose(avdataspace_id);
